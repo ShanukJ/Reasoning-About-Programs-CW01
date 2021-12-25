@@ -1,0 +1,4701 @@
+<Machine name='SpaceShip' type='abstraction'>
+<Sees>
+<Attr>
+<Pos l='13' c='1' s='4'/>
+</Attr>
+<Referenced_Machine>
+<Attr>
+<Pos l='14' c='5' s='5'/>
+</Attr>
+<Name>Space</Name>
+</Referenced_Machine>
+<Referenced_Machine>
+<Attr>
+<Pos l='14' c='12' s='9'/>
+</Attr>
+<Name>Asteroids</Name>
+</Referenced_Machine>
+</Sees>
+<Sets>
+<Attr>
+<Pos l='16' c='1' s='4'/>
+</Attr>
+<Set>
+<Id value='DIRECTION' typref='2042919802'>
+<Attr>
+<Pos l='17' c='5' s='9'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='MoveUp' typref='2018955977'>
+<Attr>
+<Pos l='18' c='9' s='6'/>
+</Attr>
+</Id>
+<Id value='MoveDown' typref='2018955977'>
+<Attr>
+<Pos l='19' c='9' s='8'/>
+</Attr>
+</Id>
+<Id value='MoveBackward' typref='2018955977'>
+<Attr>
+<Pos l='20' c='9' s='12'/>
+</Attr>
+</Id>
+<Id value='MoveForward' typref='2018955977'>
+<Attr>
+<Pos l='21' c='9' s='11'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+<Set>
+<Id value='REPORT' typref='2103186537'>
+<Attr>
+<Pos l='24' c='5' s='6'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='MovedUp' typref='2771369456'>
+<Attr>
+<Pos l='25' c='9' s='7'/>
+</Attr>
+</Id>
+<Id value='MovedUp_Failed' typref='2771369456'>
+<Attr>
+<Pos l='26' c='9' s='14'/>
+</Attr>
+</Id>
+<Id value='MovedDown' typref='2771369456'>
+<Attr>
+<Pos l='27' c='9' s='9'/>
+</Attr>
+</Id>
+<Id value='MovedDown_Failed' typref='2771369456'>
+<Attr>
+<Pos l='28' c='9' s='16'/>
+</Attr>
+</Id>
+<Id value='MovedLeft' typref='2771369456'>
+<Attr>
+<Pos l='29' c='9' s='9'/>
+</Attr>
+</Id>
+<Id value='MovedLeft_Failed' typref='2771369456'>
+<Attr>
+<Pos l='30' c='9' s='16'/>
+</Attr>
+</Id>
+<Id value='MovedRight' typref='2771369456'>
+<Attr>
+<Pos l='31' c='9' s='10'/>
+</Attr>
+</Id>
+<Id value='MovedRight_Failed' typref='2771369456'>
+<Attr>
+<Pos l='32' c='9' s='17'/>
+</Attr>
+</Id>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='33' c='9' s='12'/>
+</Attr>
+</Id>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='34' c='9' s='15'/>
+</Attr>
+</Id>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='35' c='9' s='30'/>
+</Attr>
+</Id>
+<Id value='Engaged_WrapDrive' typref='2771369456'>
+<Attr>
+<Pos l='36' c='9' s='17'/>
+</Attr>
+</Id>
+<Id value='CanNot_Wrap_Into_Asteroid' typref='2771369456'>
+<Attr>
+<Pos l='37' c='9' s='25'/>
+</Attr>
+</Id>
+<Id value='CanNot_Wrap_Into_SamePosition' typref='2771369456'>
+<Attr>
+<Pos l='38' c='9' s='29'/>
+</Attr>
+</Id>
+<Id value='Started_a_new_game' typref='2771369456'>
+<Attr>
+<Pos l='39' c='9' s='18'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+<Set>
+<Id value='GAME_STATUS' typref='1881578682'>
+<Attr>
+<Pos l='42' c='5' s='11'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='GAME_WON' typref='1105139465'>
+<Attr>
+<Pos l='43' c='9' s='8'/>
+</Attr>
+</Id>
+<Id value='GAME_LOST' typref='1105139465'>
+<Attr>
+<Pos l='44' c='9' s='9'/>
+</Attr>
+</Id>
+<Id value='GAME_NOT_OVER' typref='1105139465'>
+<Attr>
+<Pos l='45' c='9' s='13'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+<Set>
+<Id value='DOCKED_STATUS' typref='3338770202'>
+<Attr>
+<Pos l='48' c='5' s='13'/>
+</Attr>
+</Id>
+<Enumerated_Values>
+<Id value='YES' typref='3695450665'>
+<Attr>
+<Pos l='48' c='22' s='3'/>
+</Attr>
+</Id>
+<Id value='NO' typref='3695450665'>
+<Attr>
+<Pos l='48' c='27' s='2'/>
+</Attr>
+</Id>
+</Enumerated_Values>
+</Set>
+</Sets>
+<Concrete_Constants>
+<Attr>
+<Pos l='50' c='1' s='18'/>
+</Attr>
+<Id value='InitialPower' typref='2701647786'>
+<Attr>
+<Pos l='51' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='51' c='19' s='18'/>
+</Attr>
+</Id>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='51' c='39' s='17'/>
+</Attr>
+</Id>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='51' c='58' s='22'/>
+</Attr>
+</Id>
+<Id value='homeBase' typref='3672872563'>
+<Attr>
+<Pos l='51' c='82' s='8'/>
+</Attr>
+</Id>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='51' c='92' s='8'/>
+</Attr>
+</Id>
+</Concrete_Constants>
+<Abstract_Variables>
+<Attr>
+<Pos l='111' c='1' s='18'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='112' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='114' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='116' c='5' s='5'/>
+</Attr>
+</Id>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='118' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='120' c='5' s='12'/>
+</Attr>
+</Id>
+</Abstract_Variables>
+<Properties>
+<Attr>
+<Pos l='53' c='1' s='10'/>
+</Attr>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='54' c='18' s='1'/>
+</Attr>
+<Id value='InitialPower' typref='2701647786'>
+<Attr>
+<Pos l='54' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='54' c='20' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='54' c='44' s='1'/>
+</Attr>
+<Id value='InitialPower' typref='2701647786'>
+<Attr>
+<Pos l='54' c='31' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='100' typref='2701647786'>
+<Attr>
+<Pos l='54' c='46' s='3'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='56' c='24' s='1'/>
+</Attr>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='56' c='5' s='18'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='56' c='26' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='56' c='56' s='1'/>
+</Attr>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='56' c='37' s='18'/>
+</Attr>
+</Id>
+<Integer_Literal value='5' typref='2701647786'>
+<Attr>
+<Pos l='56' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='58' c='23' s='1'/>
+</Attr>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='58' c='5' s='17'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='58' c='25' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='58' c='54' s='1'/>
+</Attr>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='58' c='36' s='17'/>
+</Attr>
+</Id>
+<Integer_Literal value='20' typref='2701647786'>
+<Attr>
+<Pos l='58' c='56' s='2'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='60' c='28' s='1'/>
+</Attr>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='60' c='5' s='22'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='60' c='30' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='60' c='64' s='1'/>
+</Attr>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='60' c='41' s='22'/>
+</Attr>
+</Id>
+<Integer_Literal value='10' typref='2701647786'>
+<Attr>
+<Pos l='60' c='66' s='2'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='62' c='14' s='1'/>
+</Attr>
+<Id value='homeBase' typref='3672872563'>
+<Attr>
+<Pos l='62' c='5' s='8'/>
+</Attr>
+</Id>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='62' c='16' s='5'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='62' c='34' s='1'/>
+</Attr>
+<Id value='homeBase' typref='3672872563'>
+<Attr>
+<Pos l='62' c='25' s='8'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='62' c='39' s='3'/>
+</Attr>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='62' c='37' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='62' c='43' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='64' c='14' s='1'/>
+</Attr>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='64' c='5' s='8'/>
+</Attr>
+</Id>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='64' c='16' s='5'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='64' c='34' s='1'/>
+</Attr>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='64' c='25' s='8'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='64' c='39' s='3'/>
+</Attr>
+<Integer_Literal value='6' typref='2701647786'>
+<Attr>
+<Pos l='64' c='37' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='4' typref='2701647786'>
+<Attr>
+<Pos l='64' c='43' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Properties>
+<Invariant>
+<Attr>
+<Pos l='122' c='1' s='9'/>
+</Attr>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='123' c='15' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='123' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='123' c='17' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='123' c='40' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='123' c='30' s='9'/>
+</Attr>
+</Id>
+<Id value='spaceX_region' typref='3603043417'>
+<Attr>
+<Pos l='123' c='42' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='125' c='15' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='125' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='125' c='17' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='125' c='40' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='125' c='30' s='9'/>
+</Attr>
+</Id>
+<Id value='spaceY_region' typref='3603043417'>
+<Attr>
+<Pos l='125' c='42' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='127' c='11' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='127' c='5' s='5'/>
+</Attr>
+</Id>
+<Id value='NATURAL' typref='3603043417'>
+<Attr>
+<Pos l='127' c='13' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='129' c='18' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='129' c='5' s='12'/>
+</Attr>
+</Id>
+<Id value='NATURAL' typref='3603043417'>
+<Attr>
+<Pos l='129' c='20' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='131' c='18' s='1'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='131' c='5' s='12'/>
+</Attr>
+</Id>
+<Unary_Exp op='seq' typref='1382780156'>
+<Attr>
+<Pos l='131' c='20' s='3'/>
+</Attr>
+<Id value='emptySpace' typref='103245008'>
+<Attr>
+<Pos l='131' c='24' s='10'/>
+</Attr>
+</Id>
+</Unary_Exp>
+</Exp_Comparison>
+</Nary_Pred>
+</Invariant>
+<Initialisation>
+<Attr>
+<Pos l='133' c='1' s='14'/>
+</Attr>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='134' c='11' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='134' c='5' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='134' c='14' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='136' c='26' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='136' c='5' s='9'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='136' c='16' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='136' c='29' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='136' c='32' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='138' c='18' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='138' c='5' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='138' c='21' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='140' c='18' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='140' c='5' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Nary_Exp op='[' typref='1905100487'>
+<Attr>
+<Pos l='140' c='21' s='1'/>
+</Attr>
+<Id value='homeBase' typref='3672872563'>
+<Attr>
+<Pos l='140' c='22' s='8'/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Initialisation>
+<Operations>
+<Operation name='Move'>
+<Attr>
+<Pos l='143' c='5' s='6' endLine='376'/>
+</Attr>
+<Output_Parameters>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='143' c='5' s='6'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='direction' typref='2018955977'>
+<Attr>
+<Pos l='143' c='23' s='9'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='145' c='19' s='1'/>
+</Attr>
+<Id value='direction' typref='2018955977'>
+<Attr>
+<Pos l='145' c='9' s='9'/>
+</Attr>
+</Id>
+<Id value='DIRECTION' typref='2042919802'>
+<Attr>
+<Pos l='145' c='21' s='9'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='145' c='33' s='3'/>
+</Attr>
+<Binary_Pred op='or'>
+<Attr>
+<Pos l='74' c='42' s='2' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='70' c='52' s='1' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='28' s='9' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='42' s='9' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='70' c='54' s='8' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='&lt;'>
+<Attr>
+<Pos l='74' c='52' s='1' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='74' c='46' s='5' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='74' c='54' s='18' expanded='yes'/>
+<Pos l='145' c='37' s='14'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Binary_Pred>
+</Unary_Pred>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Case_Sub>
+<Attr>
+<Pos l='147' c='9' s='4'/>
+</Attr>
+<Value>
+<Id value='direction' typref='2018955977'>
+<Attr>
+<Pos l='147' c='14' s='9'/>
+</Attr>
+</Id>
+</Value>
+<Choices>
+<Choice>
+<Attr>
+<Pos l='147' c='27' s='6'/>
+</Attr>
+<Value>
+<Id value='MoveUp' typref='2018955977'>
+<Attr>
+<Pos l='149' c='17' s='6'/>
+</Attr>
+</Id>
+</Value>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='151' c='17' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='152' c='28' s='2'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='152' c='22' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='152' c='31' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='154' c='21' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='68' c='41' s='1' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='155' c='39' s='9' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+</Id>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='155' c='60' s='1' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='155' c='50' s='9' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='155' c='61' s='1' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='68' c='43' s='5' expanded='yes'/>
+<Pos l='155' c='25' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='157' c='25' s='2'/>
+</Attr>
+<Condition>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='158' c='29' s='3'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='72' c='41' s='1' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='158' c='47' s='9' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+</Id>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='158' c='68' s='1' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='158' c='58' s='9' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='158' c='70' s='1' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+<Id value='asteroids' typref='103245008'>
+<Attr>
+<Pos l='72' c='43' s='9' expanded='yes'/>
+<Pos l='158' c='33' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Unary_Pred>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='160' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='161' c='61' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='161' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='161' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='161' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='161' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='163' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='163' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='163' c='56' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='163' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='163' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='165' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='165' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='165' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='165' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='165' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='167' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='167' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedUp' typref='2771369456'>
+<Attr>
+<Pos l='167' c='43' s='7'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='169' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='169' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='169' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='169' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='169' c='76' s='3'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='169' c='66' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='169' c='90' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='169' c='80' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='169' c='92' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='171' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='171' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='171' c='56' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='171' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='171' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='173' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='173' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='173' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='175' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='175' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedUp' typref='2771369456'>
+<Attr>
+<Pos l='175' c='43' s='7'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='177' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='177' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='177' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='177' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='177' c='76' s='3'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='177' c='66' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='177' c='90' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='177' c='80' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='177' c='92' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='180' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='181' c='86' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='181' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='181' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='181' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='181' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='181' c='63' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='181' c='89' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='183' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='183' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='183' c='69' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='183' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='183' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='183' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='183' c='71' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='185' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='185' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='185' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='185' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='185' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='187' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='187' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='187' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='189' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='189' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='189' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='191' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='191' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='191' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='191' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='191' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='193' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='193' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='193' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='197' c='32' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='197' c='25' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='197' c='35' s='30'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='200' c='28' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='200' c='21' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='200' c='31' s='15'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+</Choice>
+<Choice>
+<Attr>
+<Pos l='204' c='13' s='2'/>
+</Attr>
+<Value>
+<Id value='MoveDown' typref='2018955977'>
+<Attr>
+<Pos l='206' c='17' s='8'/>
+</Attr>
+</Id>
+</Value>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='208' c='17' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='209' c='28' s='2'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='209' c='22' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='209' c='31' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='211' c='21' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='68' c='41' s='1' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='212' c='39' s='9' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+</Id>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='212' c='60' s='1' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='212' c='50' s='9' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='212' c='62' s='1' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='68' c='43' s='5' expanded='yes'/>
+<Pos l='212' c='25' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='214' c='25' s='2'/>
+</Attr>
+<Condition>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='215' c='29' s='3'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='72' c='41' s='1' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='215' c='47' s='9' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+</Id>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='215' c='68' s='1' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='215' c='58' s='9' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='215' c='70' s='1' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+<Id value='asteroids' typref='103245008'>
+<Attr>
+<Pos l='72' c='43' s='9' expanded='yes'/>
+<Pos l='215' c='33' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Unary_Pred>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='217' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='218' c='61' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='218' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='218' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='218' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='218' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='220' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='220' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='220' c='56' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='220' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='220' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='222' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='222' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='222' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='222' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='222' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='224' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='224' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedDown' typref='2771369456'>
+<Attr>
+<Pos l='224' c='43' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='226' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='226' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='226' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='226' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='226' c='76' s='3'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='226' c='66' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='226' c='90' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='226' c='80' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='226' c='92' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='228' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='228' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='228' c='56' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='228' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='228' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='230' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='230' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='230' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='232' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='232' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedDown' typref='2771369456'>
+<Attr>
+<Pos l='232' c='43' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='234' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='234' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='234' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='234' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='234' c='76' s='3'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='234' c='66' s='9'/>
+</Attr>
+</Id>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='234' c='90' s='1'/>
+</Attr>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='234' c='80' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='234' c='92' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='237' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='238' c='86' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='238' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='238' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='238' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='238' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='238' c='63' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='238' c='89' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='240' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='240' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='240' c='69' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='240' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='240' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='240' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='240' c='71' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='242' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='242' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='242' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='242' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='242' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='244' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='244' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='244' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='246' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='246' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='246' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='248' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='248' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='248' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='248' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='248' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='250' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='250' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='250' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='254' c='32' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='254' c='25' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='254' c='35' s='30'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='257' c='28' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='257' c='21' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='257' c='31' s='15'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+</Choice>
+<Choice>
+<Attr>
+<Pos l='261' c='13' s='2'/>
+</Attr>
+<Value>
+<Id value='MoveBackward' typref='2018955977'>
+<Attr>
+<Pos l='263' c='17' s='12'/>
+</Attr>
+</Id>
+</Value>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='265' c='17' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='266' c='28' s='2'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='266' c='22' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='266' c='31' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='268' c='21' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='68' c='41' s='1' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='269' c='49' s='1' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='269' c='39' s='9' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='269' c='51' s='1' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='269' c='54' s='9' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='68' c='43' s='5' expanded='yes'/>
+<Pos l='269' c='25' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='271' c='25' s='2'/>
+</Attr>
+<Condition>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='272' c='29' s='3'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='72' c='41' s='1' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='272' c='57' s='1' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='272' c='47' s='9' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='272' c='59' s='1' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='272' c='62' s='9' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='asteroids' typref='103245008'>
+<Attr>
+<Pos l='72' c='43' s='9' expanded='yes'/>
+<Pos l='272' c='33' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Unary_Pred>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='274' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='275' c='61' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='275' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='275' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='275' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='275' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='277' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='277' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='277' c='56' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='277' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='277' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='279' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='279' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='279' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='279' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='279' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='281' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='281' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedLeft' typref='2771369456'>
+<Attr>
+<Pos l='281' c='43' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='283' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='283' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='283' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='283' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='283' c='80' s='3'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='283' c='76' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='283' c='66' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='283' c='78' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='283' c='84' s='9'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='285' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='285' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='285' c='56' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='285' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='285' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='287' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='287' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='287' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='289' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='289' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedLeft' typref='2771369456'>
+<Attr>
+<Pos l='289' c='43' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='291' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='291' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='291' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='291' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='291' c='80' s='3'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='291' c='76' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='291' c='66' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='291' c='78' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='291' c='84' s='9'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='294' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='295' c='86' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='295' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='295' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='295' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='295' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='295' c='63' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='295' c='89' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='297' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='297' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='297' c='69' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='297' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='297' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='297' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='297' c='71' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='299' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='299' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='299' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='299' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='299' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='301' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='301' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='301' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='303' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='303' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='303' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='305' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='305' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='305' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='305' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='305' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='307' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='307' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='307' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='311' c='32' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='311' c='25' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='311' c='35' s='30'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='314' c='28' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='314' c='21' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='314' c='31' s='15'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+</Choice>
+<Choice>
+<Attr>
+<Pos l='318' c='13' s='2'/>
+</Attr>
+<Value>
+<Id value='MoveForward' typref='2018955977'>
+<Attr>
+<Pos l='320' c='17' s='11'/>
+</Attr>
+</Id>
+</Value>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='322' c='17' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='323' c='28' s='2'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='323' c='22' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='323' c='31' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='325' c='21' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='68' c='41' s='1' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='326' c='49' s='1' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='326' c='39' s='9' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='326' c='51' s='1' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='326' c='54' s='9' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='68' c='43' s='5' expanded='yes'/>
+<Pos l='326' c='25' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='328' c='25' s='2'/>
+</Attr>
+<Condition>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='329' c='29' s='3'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='72' c='41' s='1' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='329' c='57' s='1' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='329' c='47' s='9' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='329' c='59' s='1' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='329' c='62' s='9' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='asteroids' typref='103245008'>
+<Attr>
+<Pos l='72' c='43' s='9' expanded='yes'/>
+<Pos l='329' c='33' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Unary_Pred>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='331' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='332' c='61' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='332' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='332' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='332' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='332' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='334' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='334' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='334' c='56' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='334' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='334' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='336' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='336' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='336' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='336' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='336' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='338' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='338' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedRight' typref='2771369456'>
+<Attr>
+<Pos l='338' c='43' s='10'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='340' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='340' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='340' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='340' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='340' c='80' s='3'/>
+</Attr>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='340' c='76' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='340' c='66' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='340' c='78' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='340' c='84' s='9'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='342' c='43' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='342' c='33' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='342' c='56' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='342' c='46' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='342' c='58' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='344' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='344' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='344' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='346' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='346' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='MovedRight' typref='2771369456'>
+<Attr>
+<Pos l='346' c='43' s='10'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='348' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='348' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='348' c='62' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='348' c='49' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='348' c='80' s='3'/>
+</Attr>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='348' c='76' s='1'/>
+</Attr>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='348' c='66' s='9'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='348' c='78' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='348' c='84' s='9'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='351' c='29' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='352' c='86' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='352' c='61' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='352' c='40' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='352' c='34' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='352' c='42' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='352' c='63' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='352' c='89' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='354' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='354' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='354' c='69' s='1'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='354' c='48' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='354' c='42' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='354' c='50' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='PowerLossByAsteroidHit' typref='2701647786'>
+<Attr>
+<Pos l='354' c='71' s='22'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='356' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='356' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='356' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='356' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='356' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='358' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='358' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='358' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='360' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='360' c='33' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='360' c='42' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='362' c='46' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='362' c='33' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='+' typref='2701647786'>
+<Attr>
+<Pos l='362' c='62' s='1'/>
+</Attr>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='362' c='49' s='12'/>
+</Attr>
+</Id>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='362' c='64' s='1'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='364' c='40' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='364' c='33' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Asteroid_Hit' typref='2771369456'>
+<Attr>
+<Pos l='364' c='43' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='368' c='32' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='368' c='25' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='368' c='35' s='30'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='371' c='28' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='371' c='21' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='371' c='31' s='15'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+</Choice>
+</Choices>
+</Case_Sub>
+</Body>
+</Operation>
+<Operation name='EngageWarpDrive'>
+<Attr>
+<Pos l='379' c='5' s='6' endLine='437'/>
+</Attr>
+<Output_Parameters>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='379' c='5' s='6'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='379' c='32' s='12'/>
+</Attr>
+</Id>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='379' c='46' s='12'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='383' c='22' s='1'/>
+</Attr>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='383' c='9' s='12'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='383' c='24' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='383' c='47' s='1'/>
+</Attr>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='383' c='35' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='..' typref='3603043417'>
+<Attr>
+<Pos l='383' c='50' s='2'/>
+</Attr>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='383' c='49' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='15' typref='2701647786'>
+<Attr>
+<Pos l='383' c='52' s='2'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='385' c='22' s='1'/>
+</Attr>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='385' c='9' s='12'/>
+</Attr>
+</Id>
+<Id value='NATURAL1' typref='3603043417'>
+<Attr>
+<Pos l='385' c='24' s='8'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='385' c='47' s='1'/>
+</Attr>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='385' c='35' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='..' typref='3603043417'>
+<Attr>
+<Pos l='385' c='50' s='2'/>
+</Attr>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='385' c='49' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='10' typref='2701647786'>
+<Attr>
+<Pos l='385' c='52' s='2'/>
+</Attr>
+</Integer_Literal>
+</Binary_Exp>
+</Exp_Comparison>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='387' c='9' s='3'/>
+</Attr>
+<Binary_Pred op='or'>
+<Attr>
+<Pos l='74' c='42' s='2' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='70' c='52' s='1' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='28' s='9' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='42' s='9' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='70' c='54' s='8' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='&lt;'>
+<Attr>
+<Pos l='74' c='52' s='1' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='74' c='46' s='5' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='74' c='54' s='18' expanded='yes'/>
+<Pos l='387' c='13' s='14'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Binary_Pred>
+</Unary_Pred>
+</Nary_Pred>
+</Precondition>
+<Body>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='390' c='9' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='391' c='21' s='2'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='391' c='15' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='391' c='24' s='17'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='393' c='14' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='68' c='41' s='1' expanded='yes'/>
+<Pos l='394' c='18' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='394' c='32' s='12' expanded='yes'/>
+<Pos l='394' c='18' s='13'/>
+</Attr>
+</Id>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='394' c='46' s='12' expanded='yes'/>
+<Pos l='394' c='18' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='space' typref='103245008'>
+<Attr>
+<Pos l='68' c='43' s='5' expanded='yes'/>
+<Pos l='394' c='18' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='396' c='18' s='2'/>
+</Attr>
+<Condition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='397' c='36' s='1'/>
+</Attr>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='397' c='23' s='12'/>
+</Attr>
+</Id>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='397' c='38' s='9'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='397' c='63' s='1'/>
+</Attr>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='397' c='50' s='12'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='397' c='65' s='9'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Nary_Pred>
+</Condition>
+<Then>
+<Assignement_Sub>
+<Attr>
+<Pos l='399' c='29' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='399' c='22' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Wrap_Into_SamePosition' typref='2771369456'>
+<Attr>
+<Pos l='399' c='32' s='29'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='401' c='22' s='2'/>
+</Attr>
+<Condition>
+<Unary_Pred op='not'>
+<Attr>
+<Pos l='402' c='26' s='3'/>
+</Attr>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='72' c='41' s='1' expanded='yes'/>
+<Pos l='402' c='30' s='13'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='402' c='44' s='12' expanded='yes'/>
+<Pos l='402' c='30' s='13'/>
+</Attr>
+</Id>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='402' c='58' s='12' expanded='yes'/>
+<Pos l='402' c='30' s='13'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='asteroids' typref='103245008'>
+<Attr>
+<Pos l='72' c='43' s='9' expanded='yes'/>
+<Pos l='402' c='30' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Unary_Pred>
+</Condition>
+<Then>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='404' c='27' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&gt;='>
+<Attr>
+<Pos l='405' c='59' s='2'/>
+</Attr>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='405' c='39' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='405' c='33' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='405' c='41' s='17'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='405' c='62' s='1'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='407' c='42' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='407' c='32' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='407' c='45' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='409' c='42' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='409' c='32' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='409' c='45' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='411' c='38' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='411' c='32' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='-' typref='2701647786'>
+<Attr>
+<Pos l='411' c='47' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='411' c='41' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForWarpDrive' typref='2701647786'>
+<Attr>
+<Pos l='411' c='49' s='17'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='413' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='413' c='32' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Engaged_WrapDrive' typref='2771369456'>
+<Attr>
+<Pos l='413' c='42' s='17'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='415' c='45' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='415' c='32' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='415' c='61' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='415' c='48' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='415' c='79' s='3'/>
+</Attr>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='415' c='65' s='12'/>
+</Attr>
+</Id>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='415' c='83' s='12'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Then>
+<Else>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='417' c='42' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='417' c='32' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='417' c='45' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='419' c='42' s='2'/>
+</Attr>
+<Variables>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='419' c='32' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='419' c='45' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='421' c='38' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='421' c='32' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='421' c='41' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='423' c='39' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='423' c='32' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Engaged_WrapDrive' typref='2771369456'>
+<Attr>
+<Pos l='423' c='42' s='17'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='425' c='45' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='425' c='32' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Binary_Exp op='&lt;-' typref='1905100487'>
+<Attr>
+<Pos l='425' c='61' s='2'/>
+</Attr>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='425' c='48' s='12'/>
+</Attr>
+</Id>
+<Binary_Exp op='|-&gt;' typref='3672872563'>
+<Attr>
+<Pos l='425' c='79' s='3'/>
+</Attr>
+<Id value='newpositionX' typref='2701647786'>
+<Attr>
+<Pos l='425' c='65' s='12'/>
+</Attr>
+</Id>
+<Id value='newpositionY' typref='2701647786'>
+<Attr>
+<Pos l='425' c='83' s='12'/>
+</Attr>
+</Id>
+</Binary_Exp>
+</Binary_Exp>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='428' c='35' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='428' c='28' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Wrap_Into_Asteroid' typref='2771369456'>
+<Attr>
+<Pos l='428' c='38' s='25'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='432' c='27' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='432' c='20' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='CanNot_Move_Beyond_Known_Space' typref='2771369456'>
+<Attr>
+<Pos l='432' c='30' s='30'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='435' c='23' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='435' c='16' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NoPower_To_Move' typref='2771369456'>
+<Attr>
+<Pos l='435' c='26' s='15'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Body>
+</Operation>
+<Operation name='NewGame'>
+<Attr>
+<Pos l='441' c='8' s='6' endLine='454'/>
+</Attr>
+<Output_Parameters>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='441' c='8' s='6'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Input_Parameters>
+<Id value='Power' typref='2701647786'>
+<Attr>
+<Pos l='441' c='29' s='5'/>
+</Attr>
+</Id>
+</Input_Parameters>
+<Precondition>
+<Nary_Pred op='&amp;'>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='443' c='18' s='1'/>
+</Attr>
+<Id value='Power' typref='2701647786'>
+<Attr>
+<Pos l='443' c='12' s='5'/>
+</Attr>
+</Id>
+<Id value='NATURAL' typref='3603043417'>
+<Attr>
+<Pos l='443' c='20' s='7'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='443' c='36' s='1'/>
+</Attr>
+<Id value='Power' typref='2701647786'>
+<Attr>
+<Pos l='443' c='30' s='5'/>
+</Attr>
+</Id>
+<Integer_Literal value='100' typref='2701647786'>
+<Attr>
+<Pos l='443' c='38' s='3'/>
+</Attr>
+</Integer_Literal>
+</Exp_Comparison>
+</Nary_Pred>
+</Precondition>
+<Body>
+<Nary_Sub op='||'>
+<Assignement_Sub>
+<Attr>
+<Pos l='445' c='33' s='2'/>
+</Attr>
+<Variables>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='445' c='12' s='9'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='445' c='23' s='9'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='445' c='37' s='1'/>
+</Attr>
+</Integer_Literal>
+<Integer_Literal value='1' typref='2701647786'>
+<Attr>
+<Pos l='445' c='40' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='447' c='18' s='2'/>
+</Attr>
+<Variables>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='447' c='12' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Power' typref='2701647786'>
+<Attr>
+<Pos l='447' c='21' s='5'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='449' c='25' s='2'/>
+</Attr>
+<Variables>
+<Id value='asteroidHits' typref='2701647786'>
+<Attr>
+<Pos l='449' c='12' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Integer_Literal value='0' typref='2701647786'>
+<Attr>
+<Pos l='449' c='28' s='1'/>
+</Attr>
+</Integer_Literal>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='451' c='25' s='2'/>
+</Attr>
+<Variables>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='451' c='12' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Nary_Exp op='[' typref='1905100487'>
+<Attr>
+<Pos l='451' c='28' s='1'/>
+</Attr>
+<Id value='homeBase' typref='3672872563'>
+<Attr>
+<Pos l='451' c='29' s='8'/>
+</Attr>
+</Id>
+</Nary_Exp>
+</Values>
+</Assignement_Sub>
+<Assignement_Sub>
+<Attr>
+<Pos l='453' c='19' s='2'/>
+</Attr>
+<Variables>
+<Id value='report' typref='2771369456'>
+<Attr>
+<Pos l='453' c='12' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='Started_a_new_game' typref='2771369456'>
+<Attr>
+<Pos l='453' c='22' s='18'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Nary_Sub>
+</Body>
+</Operation>
+<Operation name='VisitedRoutes'>
+<Attr>
+<Pos l='458' c='8' s='5' endLine='461'/>
+</Attr>
+<Output_Parameters>
+<Id value='route' typref='1905100487'>
+<Attr>
+<Pos l='458' c='8' s='5'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='460' c='18' s='2'/>
+</Attr>
+<Variables>
+<Id value='route' typref='1905100487'>
+<Attr>
+<Pos l='460' c='12' s='5'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='visitedRoute' typref='1905100487'>
+<Attr>
+<Pos l='460' c='21' s='12'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+<Operation name='MissionStatus'>
+<Attr>
+<Pos l='465' c='8' s='6' endLine='482'/>
+</Attr>
+<Output_Parameters>
+<Id value='status' typref='1105139465'>
+<Attr>
+<Pos l='465' c='8' s='6'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Precondition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='467' c='19' s='1'/>
+</Attr>
+<Id value='status' typref='1105139465'>
+<Attr>
+<Pos l='467' c='12' s='6'/>
+</Attr>
+</Id>
+<Id value='GAME_STATUS' typref='1881578682'>
+<Attr>
+<Pos l='467' c='21' s='11'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Precondition>
+<Body>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='469' c='12' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='70' c='52' s='1' expanded='yes'/>
+<Pos l='470' c='17' s='18'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='28' s='9' expanded='yes'/>
+<Pos l='470' c='17' s='18'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='42' s='9' expanded='yes'/>
+<Pos l='470' c='17' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='70' c='54' s='8' expanded='yes'/>
+<Pos l='470' c='17' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Assignement_Sub>
+<Attr>
+<Pos l='472' c='23' s='2'/>
+</Attr>
+<Variables>
+<Id value='status' typref='1105139465'>
+<Attr>
+<Pos l='472' c='16' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='GAME_WON' typref='1105139465'>
+<Attr>
+<Pos l='472' c='26' s='8'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Then>
+<Else>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='474' c='16' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='&lt;'>
+<Attr>
+<Pos l='475' c='27' s='1'/>
+</Attr>
+<Id value='power' typref='2701647786'>
+<Attr>
+<Pos l='475' c='21' s='5'/>
+</Attr>
+</Id>
+<Id value='PowerForNormalMove' typref='2701647786'>
+<Attr>
+<Pos l='475' c='29' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Assignement_Sub>
+<Attr>
+<Pos l='477' c='27' s='2'/>
+</Attr>
+<Variables>
+<Id value='status' typref='1105139465'>
+<Attr>
+<Pos l='477' c='20' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='GAME_LOST' typref='1105139465'>
+<Attr>
+<Pos l='477' c='30' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='479' c='27' s='2'/>
+</Attr>
+<Variables>
+<Id value='status' typref='1105139465'>
+<Attr>
+<Pos l='479' c='20' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='GAME_NOT_OVER' typref='1105139465'>
+<Attr>
+<Pos l='479' c='30' s='13'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Else>
+</If_Sub>
+</Body>
+</Operation>
+<Operation name='DockedSucsessfully'>
+<Attr>
+<Pos l='486' c='8' s='12' endLine='497'/>
+</Attr>
+<Output_Parameters>
+<Id value='dockedStatus' typref='3695450665'>
+<Attr>
+<Pos l='486' c='8' s='12'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Precondition>
+<Exp_Comparison op=':'>
+<Attr>
+<Pos l='488' c='25' s='1'/>
+</Attr>
+<Id value='dockedStatus' typref='3695450665'>
+<Attr>
+<Pos l='488' c='12' s='12'/>
+</Attr>
+</Id>
+<Id value='DOCKED_STATUS' typref='3338770202'>
+<Attr>
+<Pos l='488' c='27' s='13'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Precondition>
+<Body>
+<If_Sub elseif='no'>
+<Attr>
+<Pos l='490' c='12' s='2'/>
+</Attr>
+<Condition>
+<Exp_Comparison op='='>
+<Attr>
+<Pos l='70' c='52' s='1' expanded='yes'/>
+<Pos l='491' c='17' s='18'/>
+</Attr>
+<Binary_Exp op='|-&gt;'>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='28' s='9' expanded='yes'/>
+<Pos l='491' c='17' s='18'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='70' c='42' s='9' expanded='yes'/>
+<Pos l='491' c='17' s='18'/>
+</Attr>
+</Id>
+</Binary_Exp>
+<Id value='starBase' typref='3672872563'>
+<Attr>
+<Pos l='70' c='54' s='8' expanded='yes'/>
+<Pos l='491' c='17' s='18'/>
+</Attr>
+</Id>
+</Exp_Comparison>
+</Condition>
+<Then>
+<Assignement_Sub>
+<Attr>
+<Pos l='493' c='29' s='2'/>
+</Attr>
+<Variables>
+<Id value='dockedStatus' typref='3695450665'>
+<Attr>
+<Pos l='493' c='16' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='YES' typref='3695450665'>
+<Attr>
+<Pos l='493' c='32' s='3'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Then>
+<Else>
+<Assignement_Sub>
+<Attr>
+<Pos l='495' c='29' s='2'/>
+</Attr>
+<Variables>
+<Id value='dockedStatus' typref='3695450665'>
+<Attr>
+<Pos l='495' c='16' s='12'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='NO' typref='3695450665'>
+<Attr>
+<Pos l='495' c='32' s='2'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Else>
+</If_Sub>
+</Body>
+</Operation>
+<Operation name='CurrentPosition'>
+<Attr>
+<Pos l='501' c='8' s='6' endLine='504'/>
+</Attr>
+<Output_Parameters>
+<Id value='xx_pos' typref='2701647786'>
+<Attr>
+<Pos l='501' c='8' s='6'/>
+</Attr>
+</Id>
+<Id value='yy_pos' typref='2701647786'>
+<Attr>
+<Pos l='501' c='16' s='6'/>
+</Attr>
+</Id>
+</Output_Parameters>
+<Body>
+<Assignement_Sub>
+<Attr>
+<Pos l='503' c='28' s='2'/>
+</Attr>
+<Variables>
+<Id value='xx_pos' typref='2701647786'>
+<Attr>
+<Pos l='503' c='12' s='6'/>
+</Attr>
+</Id>
+<Id value='yy_pos' typref='2701647786'>
+<Attr>
+<Pos l='503' c='20' s='6'/>
+</Attr>
+</Id>
+</Variables>
+<Values>
+<Id value='xPosition' typref='2701647786'>
+<Attr>
+<Pos l='503' c='32' s='9'/>
+</Attr>
+</Id>
+<Id value='yPosition' typref='2701647786'>
+<Attr>
+<Pos l='503' c='43' s='9'/>
+</Attr>
+</Id>
+</Values>
+</Assignement_Sub>
+</Body>
+</Operation>
+</Operations>
+<TypeInfos>
+<Type id='2042919802'>
+<Unary_Exp op='POW'>
+<Id value='DIRECTION'/>
+</Unary_Exp>
+</Type>
+<Type id='2018955977'>
+<Id value='DIRECTION'/>
+</Type>
+<Type id='2103186537'>
+<Unary_Exp op='POW'>
+<Id value='REPORT'/>
+</Unary_Exp>
+</Type>
+<Type id='2771369456'>
+<Id value='REPORT'/>
+</Type>
+<Type id='1881578682'>
+<Unary_Exp op='POW'>
+<Id value='GAME_STATUS'/>
+</Unary_Exp>
+</Type>
+<Type id='1105139465'>
+<Id value='GAME_STATUS'/>
+</Type>
+<Type id='3338770202'>
+<Unary_Exp op='POW'>
+<Id value='DOCKED_STATUS'/>
+</Unary_Exp>
+</Type>
+<Type id='3695450665'>
+<Id value='DOCKED_STATUS'/>
+</Type>
+<Type id='2701647786'>
+<Id value='INTEGER'/>
+</Type>
+<Type id='3672872563'>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Type>
+<Type id='1905100487'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='3603043417'>
+<Unary_Exp op='POW'>
+<Id value='INTEGER'/>
+</Unary_Exp>
+</Type>
+<Type id='103245008'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Unary_Exp>
+</Type>
+<Type id='1382780156'>
+<Unary_Exp op='POW'>
+<Unary_Exp op='POW'>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Binary_Exp op='*'>
+<Id value='INTEGER'/>
+<Id value='INTEGER'/>
+</Binary_Exp>
+</Binary_Exp>
+</Unary_Exp>
+</Unary_Exp>
+</Type>
+</TypeInfos>
+
+</Machine>

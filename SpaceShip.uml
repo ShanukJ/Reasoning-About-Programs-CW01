@@ -1,0 +1,5 @@
+@startuml
+main --> main: SETUP_CONSTANTS
+main --> main: INITIALISATION
+main --> main: NewGame(100)
+@enduml

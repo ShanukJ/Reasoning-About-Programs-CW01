@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="/Users/shanukj/Dev/AtelierB Workspace/CW01/bdp/expand_src" old_decomp_dir="/Users/shanukj/Dev/AtelierB Workspace/CW01/bdp/src">
+        <!-- Definition directory list -->
+        <!-- Component file list -->
+        <component_file path="/Users/shanukj/Dev/AtelierB Workspace/CW01" name="Asteroids" suffix="mch" user="shanukj">
+            <component name="Asteroids" type="specification" />
+        </component_file>
+        <component_file path="/Users/shanukj/Dev/AtelierB Workspace/CW01" name="Space" suffix="mch" user="shanukj">
+            <component name="Space" type="specification" />
+        </component_file>
+        <component_file path="/Users/shanukj/Dev/AtelierB Workspace/CW01" name="SpaceShip" suffix="mch" user="shanukj">
+            <component name="SpaceShip" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

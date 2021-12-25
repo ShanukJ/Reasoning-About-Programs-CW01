@@ -4,3 +4,7 @@
 .lib
 .project
 .usedby_shanukj_OLnFJB
+
+/node_modules
+package.json
+package-lock.json

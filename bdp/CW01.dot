@@ -1,0 +1,9 @@
+digraph {
+Asteroids [ label=" Asteroids " shape= box ]
+Space [ label=" Space " shape= box ]
+SpaceShip [ label=" SpaceShip " shape= box ]
+
+"Asteroids" -> "Space" [style= dotted ]
+"SpaceShip" -> "Space" [style= dotted ]
+"SpaceShip" -> "Asteroids" [style= dotted ]
+}
